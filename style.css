@@ -22,7 +22,7 @@ body {
 
 .calculator-body {
   width: 293px;
-  height: 550px;
+  height: 530px;
   background-color: #EFF0F2;
   padding: 24px;
   border-radius: 30px;
@@ -30,22 +30,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .calculator-screen {
   display: flex;
   width: 300px;
-  height: 200px;
+  height: 140px;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   margin-top: 5px;
+  font-weight: 500;
 }
 
 .small-screen {
-  border: 1px solid black;
   width: 290px;
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: end;
   align-items: end;
@@ -53,14 +54,21 @@ body {
 }
 
 .big-screen {
-  border: 1px solid black;
   width: 290px;
-  height: 90px;
-  margin-bottom: 45px;
+  height: 70px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: end;
   align-items: end;
-  font-size: 40px;
+  font-size: 42px;
+}
+
+hr {
+  background-color: #8278d9d0;
+  width: 285px;
+  height: 1.5px;
+  border: none;
+  margin-bottom: 30px;
 }
 
 .buttons-row {
@@ -75,14 +83,18 @@ body {
   border-radius: 17px;
   text-align: center;
   cursor: pointer;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .clear-button {
   background-color: #C4C4C4;
+  color: #666666;
 }
 
 .delete-button {
   background-color: #C4C4C4;
+  color: #666666;
 }
 
 .operators {
@@ -97,8 +109,8 @@ body {
 
 .js-plus-button {
   position: absolute;
-  padding-top: 37px;
-  padding-bottom: 50px;
+  padding-top: 32px;
+  padding-bottom: 57px;
   right: 0;
 
 }
@@ -107,8 +119,8 @@ body {
   background-color: #8178D9;
   color: #F1F1F5;
   position: absolute;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  padding-top: 32px;
+  padding-bottom: 57px;
   right: 0;
   bottom: 0;
 }

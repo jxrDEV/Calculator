@@ -23,16 +23,18 @@ bigScreenEl.textContent = '0';
 
 numbersEl.forEach(button => {
   button.addEventListener('click', () => {
-    if (!calculatorState) {
-      bigScreenEl.textContent = '';
-      calculatorState = true;
+    const buttonText = button.textContent;
+    if (calculatorState || buttonText !== '0') {
+      if (!calculatorState) {
+        bigScreenEl.textContent = '';
+        calculatorState = true;
+      }
+      if (operatorUsed === true) {
+        bigScreenEl.textContent = '';
+        operatorUsed = false;
+      }
+      bigScreenEl.textContent += buttonText;
     }
-    if (operatorUsed === true) {
-      bigScreenEl.textContent = '';
-      operatorUsed = false;
-    }
-    const buttonText = button.textContent
-    bigScreenEl.textContent += buttonText;
   });
 })
 
@@ -43,7 +45,7 @@ decimalButtonEl.addEventListener('click', () => {
 
 function addition() {
   plusButtonEl.addEventListener('click', () => {
-    if (!operatorUsed) {
+    if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
         if (operand === '+') {
           numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
@@ -61,7 +63,7 @@ function addition() {
 
 function subtraction() {
   minusButtonEl.addEventListener('click', () => {
-    if (!operatorUsed) {
+    if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
         if (operand === '-') {
           numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
@@ -79,7 +81,7 @@ function subtraction() {
 
 function mulitply() {
   timesButtonEl.addEventListener('click', () => {
-    if (!operatorUsed) {
+    if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
         if (operand === '*') {
           numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
@@ -97,7 +99,7 @@ function mulitply() {
 
 function divide() {
   divideButtonEl.addEventListener('click', () => {
-    if (!operatorUsed) {
+    if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
         if (operand === '/') {
           numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
@@ -115,7 +117,7 @@ function divide() {
 
 function modulo() {
   moduloButtonEl.addEventListener('click', () => {
-    if (!operatorUsed) {
+    if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
         if (operand === '%') {
           numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
@@ -187,8 +189,10 @@ function equalOperator() {
 
 function deleteNum() {
   deleteButtonEl.addEventListener('click', () => {
-    let currentNum = bigScreenEl.textContent;
-    bigScreenEl.textContent = currentNum.slice(0, -1);
+    if (calculatorState) {
+      let currentNum = bigScreenEl.textContent;
+      bigScreenEl.textContent = currentNum.slice(0, -1);
+    }
   });
 }
 
