@@ -39,9 +39,10 @@ numbersEl.forEach(button => {
 })
 
 decimalButtonEl.addEventListener('click', () => {
-  if (calculatorState && !bigScreenEl.textContent.includes('.')) {
+  if (!bigScreenEl.textContent.includes('.')) {
     const buttonText = decimalButtonEl.textContent
     bigScreenEl.textContent += buttonText;
+    calculatorState = true;
   }
 });
 
