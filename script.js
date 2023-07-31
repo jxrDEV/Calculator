@@ -10,6 +10,7 @@ const deleteButtonEl = document.querySelector('.js-delete-button');
 const equalButtonEl = document.querySelector('.js-equal-button');
 const decimalButtonEl = document.querySelector('.js-decimal-button');
 const moduloButtonEl = document.querySelector('.js-modulo-button');
+const clearButtonEl = document.querySelector('.js-clear-button');
 
 let operatorUsed = false;
 let operand;
@@ -191,6 +192,14 @@ function deleteNum() {
   });
 }
 
+function clearNum() {
+  clearButtonEl.addEventListener('click', () => {
+    calculatorState = false;
+    bigScreenEl.textContent = '0';
+    smallScreenEl.textContent = '';
+  });
+}
+
 addition();
 subtraction();
 mulitply();
@@ -198,3 +207,4 @@ divide();
 modulo();
 equalOperator();
 deleteNum();
+clearNum();
