@@ -168,7 +168,7 @@ hr {
 .numbers {
   background-color: #E4E4E4;
   color: #666BA8;
-  transition: background-color 0.05s ease-in;
+  transition: background-color ease;
 }
 
 .numbers:hover {
