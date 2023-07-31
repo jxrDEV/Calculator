@@ -49,16 +49,33 @@ function addition() {
   plusButtonEl.addEventListener('click', () => {
     if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
-        if (operand === '+') {
+        if (operand === '+') { //this handles the multiple operations
           numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
-        } else {
+        }
+        else if (operand === '-') {
+          numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
+        }
+        else if (operand === '/') {
+          numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
+        }
+        else if (operand === '*') {
+          numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
+        }
+        else if (operand === '%') {
+          numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
+        }
+
+        else {
           numberStore = bigScreenEl.textContent;
         }
-        smallScreenEl.textContent = numberStore + ' + ';
-        bigScreenEl.textContent = numberStore;
+        smallScreenEl.textContent = roundResult(numberStore) + ' + ';
+        bigScreenEl.textContent = roundResult(numberStore);
         operand = '+';
       }
       operatorUsed = true;
+    } else if (operatorUsed) {
+      operand = '+';
+      smallScreenEl.textContent = roundResult(numberStore) + ' + ';
     }
   });
 }
@@ -67,16 +84,33 @@ function subtraction() {
   minusButtonEl.addEventListener('click', () => {
     if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
-        if (operand === '-') {
+        if (operand === '-') { //handles the multiple operands at the same time
           numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
-        } else {
+        }
+        else if (operand === '+') {
+          numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
+        }
+        else if (operand === '/') {
+          numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
+        }
+        else if (operand === '*') {
+          numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
+        }
+        else if (operand === '%') {
+          numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
+        }
+        else {
           numberStore = bigScreenEl.textContent;
         }
-        smallScreenEl.textContent = numberStore + ' - ';
-        bigScreenEl.textContent = numberStore;
+        smallScreenEl.textContent = roundResult(numberStore) + ' - ';
+        bigScreenEl.textContent = roundResult(numberStore);
         operand = '-';
+        roundResult(numberStore);
       }
       operatorUsed = true;
+    } else if (operatorUsed) {
+      operand = '-';
+      smallScreenEl.textContent = roundResult(numberStore) + ' - ';
     }
   });
 }
@@ -85,16 +119,32 @@ function mulitply() {
   timesButtonEl.addEventListener('click', () => {
     if (calculatorState && !operatorUsed) {
       if (bigScreenEl.textContent) {
-        if (operand === '*') {
+        if (operand === '*') { //handles multiple operators
           numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
-        } else {
+        }
+        else if (operand === '+') {
+          numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
+        }
+        else if (operand === '-') {
+          numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
+        }
+        else if (operand === '/') {
+          numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
+        }
+        else if (operand === '%') {
+          numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
+        }
+        else {
           numberStore = bigScreenEl.textContent;
         }
-        smallScreenEl.textContent = numberStore + ' x ';
-        bigScreenEl.textContent = numberStore;
+        smallScreenEl.textContent = roundResult(numberStore) + ' x ';
+        bigScreenEl.textContent = roundResult(numberStore);
         operand = '*';
       }
       operatorUsed = true;
+    } else if (operatorUsed) {
+      operand = '*';
+      smallScreenEl.textContent = roundResult(numberStore) + ' * ';
     }
   });
 }
@@ -105,14 +155,30 @@ function divide() {
       if (bigScreenEl.textContent) {
         if (operand === '/') {
           numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
-        } else {
+        }
+        else if (operand === '+') {
+          numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
+        }
+        else if (operand === '-') {
+          numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
+        }
+        else if (operand === '*') {
+          numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
+        }
+        else if (operand === '%') {
+          numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
+        }
+        else {
           numberStore = bigScreenEl.textContent;
         }
-        smallScreenEl.textContent = numberStore + ' / ';
-        bigScreenEl.textContent = numberStore;
+        smallScreenEl.textContent = roundResult(numberStore) + ' / ';
+        bigScreenEl.textContent = roundResult(numberStore);
         operand = '/';
       }
       operatorUsed = true;
+    } else if (operatorUsed) {
+      operand = '/';
+      smallScreenEl.textContent = roundResult(numberStore) + ' / ';
     }
   });
 }
@@ -123,14 +189,30 @@ function modulo() {
       if (bigScreenEl.textContent) {
         if (operand === '%') {
           numberStore = Number(numberStore) % Number(bigScreenEl.textContent);
-        } else {
+        }
+        else if (operand === '+') {
+          numberStore = Number(numberStore) + Number(bigScreenEl.textContent);
+        }
+        else if (operand === '-') {
+          numberStore = Number(numberStore) - Number(bigScreenEl.textContent);
+        }
+        else if (operand === '/') {
+          numberStore = Number(numberStore) / Number(bigScreenEl.textContent);
+        }
+        else if (operand === '*') {
+          numberStore = Number(numberStore) * Number(bigScreenEl.textContent);
+        }
+        else {
           numberStore = bigScreenEl.textContent;
         }
-        smallScreenEl.textContent = numberStore + ' % ';
-        bigScreenEl.textContent = numberStore;
+        smallScreenEl.textContent = roundResult(numberStore) + ' % ';
+        bigScreenEl.textContent = roundResult(numberStore);
         operand = '%';
       }
       operatorUsed = true;
+    } else if (operatorUsed) {
+      operand = '%';
+      smallScreenEl.textContent = roundResult(numberStore) + ' % ';
     }
   });
 }
@@ -203,6 +285,10 @@ function clearNum() {
     calculatorState = false;
     bigScreenEl.textContent = '0';
     smallScreenEl.textContent = '';
+    numberStore = '';
+    numberStore2 = '';
+    operand = null;
+    operatorUsed = false;
   });
 }
 
