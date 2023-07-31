@@ -40,7 +40,7 @@ body {
 
 .calculator-body {
   width: 293px;
-  height: 530px;
+  min-height: 530px;
   background-color: #EFF0F2;
   padding: 24px;
   border-radius: 30px;
@@ -54,17 +54,19 @@ body {
 .calculator-screen {
   display: flex;
   width: 300px;
-  height: 140px;
+  min-height: 140px;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   margin-top: 5px;
   font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .small-screen {
   width: 290px;
-  height: 40px;
+  min-height: 40px;
   display: flex;
   justify-content: end;
   align-items: end;
@@ -73,11 +75,11 @@ body {
 
 .big-screen {
   width: 290px;
-  height: 70px;
+  min-height: 70px;
   margin-bottom: 25px;
   display: flex;
-  justify-content: end;
   align-items: end;
+  justify-content: end;
   font-size: 42px;
 }
 
@@ -123,6 +125,15 @@ hr {
 .numbers {
   background-color: #E4E4E4;
   color: #666BA8;
+  transition: background-color 0.05s ease-in;
+}
+
+.numbers:hover {
+  background-color: #dadada;
+}
+
+.numbers:active {
+  background-color: #cecece;
 }
 
 .js-plus-button {
