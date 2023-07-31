@@ -139,7 +139,7 @@ function equalOperator() {
       numberStore2 = bigScreenEl.textContent;
       smallScreenEl.textContent = numberStore + ' + ' + numberStore2 + ' = ';
       let total = Number(numberStore) + Number(numberStore2);
-      bigScreenEl.textContent = total;
+      bigScreenEl.textContent = roundResult(total);
 
       operand = null;
       numberStore = total.toString();
@@ -149,7 +149,7 @@ function equalOperator() {
       numberStore2 = bigScreenEl.textContent;
       smallScreenEl.textContent = numberStore + ' - ' + numberStore2 + ' = ';
       let total = Number(numberStore) - Number(numberStore2);
-      bigScreenEl.textContent = total;
+      bigScreenEl.textContent = roundResult(total);
 
       operand = null;
       numberStore = total.toString();
@@ -159,7 +159,7 @@ function equalOperator() {
       numberStore2 = bigScreenEl.textContent;
       smallScreenEl.textContent = numberStore + ' x ' + numberStore2 + ' = ';
       let total = Number(numberStore) * Number(numberStore2);
-      bigScreenEl.textContent = total;
+      bigScreenEl.textContent = roundResult(total);
 
       operand = null;
       numberStore = total.toString();
@@ -169,7 +169,7 @@ function equalOperator() {
       numberStore2 = bigScreenEl.textContent;
       smallScreenEl.textContent = numberStore + ' / ' + numberStore2 + ' = ';
       let total = Number(numberStore) / Number(numberStore2);
-      bigScreenEl.textContent = total;
+      bigScreenEl.textContent = roundResult(total);
 
       operand = null;
       numberStore = total.toString();
@@ -179,7 +179,7 @@ function equalOperator() {
       numberStore2 = bigScreenEl.textContent;
       smallScreenEl.textContent = numberStore + ' % ' + numberStore2 + ' = ';
       let total = Number(numberStore) % Number(numberStore2);
-      bigScreenEl.textContent = total;
+      bigScreenEl.textContent = roundResult(total);
 
       operand = null;
       numberStore = total.toString();
@@ -202,6 +202,10 @@ function clearNum() {
     bigScreenEl.textContent = '0';
     smallScreenEl.textContent = '';
   });
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000
 }
 
 addition();
