@@ -14,8 +14,12 @@
   <div class="wrapper">
     <div class="calculator-body">
       <div class="calculator-screen">
-        <div class="big-screen">
-  
+        <div class="small-screen js-small-screen">
+
+        </div>
+
+        <div class="big-screen js-big-screen">
+          
         </div>
   
       </div>
@@ -23,16 +27,16 @@
       <div class="calculator-buttons">
         <div class="buttons-row">
           <button class="clear-button">Ac</button>
-          <button class="delete-button">x</button>
-          <button class="operators">/</button>
-          <button class="operators">*</button>
+          <button class="delete-button js-delete-button">x</button>
+          <button class="operators js-divide-button">/</button>
+          <button class="operators js-times-button">*</button>
         </div>
   
-        <div class="buttons-row">
+        <div class="buttons-row js-buttons-rows">
           <button class="numbers">7</button>
           <button class="numbers">8</button>
           <button class="numbers">9</button>
-          <button class="operators">-</button>
+          <button class="operators js-minus-button">-</button>
         </div>
   
         <div class="buttons-row">
@@ -49,13 +53,14 @@
         </div>
   
         <div class="buttons-row">
-          <button class="operators">%</button>
+          <button class="operators js-modulo-button">%</button>
           <button class="numbers">0</button>
-          <button class="operators">.</button>
-          <button class="equal-button">=</button>
+          <button class="operators js-decimal-button">.</button>
+          <button class="equal-button js-equal-button">=</button>
         </div>
       </div>
     </div>
-  </div>
+  </div>  
+  <script src="script.js"></script>
 </body>
 </html>

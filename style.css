@@ -7,6 +7,8 @@
 body {
   width: 100%;
   height: 100dvh;
+  background-color: #a196d8;
+
 }
 
 .wrapper {
@@ -16,7 +18,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #a196d8;
 }
 
 .calculator-body {
@@ -25,11 +26,41 @@ body {
   background-color: #EFF0F2;
   padding: 24px;
   border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .calculator-screen {
-  width: 280px;
+  display: flex;
+  width: 300px;
   height: 200px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.small-screen {
+  border: 1px solid black;
+  width: 290px;
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 20px;
+}
+
+.big-screen {
+  border: 1px solid black;
+  width: 290px;
+  height: 90px;
+  margin-bottom: 45px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 40px;
 }
 
 .buttons-row {
@@ -43,6 +74,7 @@ body {
   border: none;
   border-radius: 17px;
   text-align: center;
+  cursor: pointer;
 }
 
 .clear-button {
