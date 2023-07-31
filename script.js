@@ -39,8 +39,10 @@ numbersEl.forEach(button => {
 })
 
 decimalButtonEl.addEventListener('click', () => {
-  const buttonText = decimalButtonEl.textContent
-  bigScreenEl.textContent += buttonText;
+  if (calculatorState && !bigScreenEl.textContent.includes('.')) {
+    const buttonText = decimalButtonEl.textContent
+    bigScreenEl.textContent += buttonText;
+  }
 });
 
 function addition() {
